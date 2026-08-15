@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime, date
 
-# Configuración de la interfaz
 st.set_page_config(
     page_title="Sistema Arquetípico y Gematría Avanzado",
     page_icon="✨",
@@ -12,7 +11,6 @@ st.set_page_config(
 st.title("✨ Sistema Integral de Ingeniería Cognitiva y Análisis Arquetípico")
 st.markdown("Plataforma avanzada de perfilado profundo basada en Cábala, Gematría, Numerología Teosófica y Correspondencias del Alfabeto Hebreo.")
 
-# Formulario de entrada de datos ampliado con rango de fechas abierto hasta la actualidad
 with st.form("perfil_form_extendido"):
     st.subheader("Parámetros de Análisis de Alta Precisión")
     
@@ -43,20 +41,16 @@ if submitted:
     else:
         st.success("¡Análisis profundo y proyección operativa procesados con éxito!")
         
-        # Procesamiento matemático y teosófico avanzado
         fecha_str = fecha_nacimiento.strftime("%d%m%Y")
         suma_digitos = sum(int(char) for char in fecha_str)
         
-        # Reducción arquetípica (Arcano Base)
         arcano_base = suma_digitos
         while arcano_base > 22 and arcano_base not in [33, 44]:
             arcano_base = sum(int(char) for char in str(arcano_base))
             
-        # Gematría simplificada del nombre
         gematria_nombre = sum(ord(c.upper()) - 64 for c in nombre_completo if c.isalpha())
         sendero_nombre = (gematria_nombre % 22) + 1
         
-        # Sintonía temporal del ciclo actual
         ciclo_str = str(ciclo_actual)
         energia_ciclo = sum(int(c) for c in ciclo_str)
         while energia_ciclo > 9:
@@ -65,7 +59,6 @@ if submitted:
         st.markdown("---")
         st.header(f"Reporte Integral Extendido para: {nombre_completo}")
         
-        # Métricas de Alta Densidad
         m1, m2, m3, m4 = st.columns(4)
         with m1:
             st.metric(label="Arcano Raíz / Base", value=str(arcano_base), delta="Matriz Vital")
@@ -83,7 +76,6 @@ if submitted:
         A partir de la fecha natal registrada (**{fecha_nacimiento.strftime('%d/%m/%Y')}** a las **{hora_nacimiento.strftime('%H:%M')}**), los patrones fonéticos del nombre (**{nombre_completo}**) y el vector temporal del año **{ciclo_actual}**, el sistema computa los flujos de energía sutil, los arquetipos raíz de los 22 Senderos del Árbol de la Vida y las frecuencias del alfabeto hebreo.
         """)
         
-        # Pestañas de profundización que incluyen la proyección detallada hasta fin de año
         tab1, tab2, tab3, tab4, tab5 = st.tabs(["🧬 Matriz Arquetípica", "⚡ Dinámica de Senderos", "🌀 Claves de Gematría", "📈 Proyección Anual", "🎯 Consejo Operativo (Mes/Semana/Día)"])
         
         with tab1:
@@ -105,7 +97,7 @@ if submitted:
             
         with tab4:
             st.markdown(f"### Proyección para el Ciclo {ciclo_actual}")
-            st.warning(f"Año regido por la vibración teosófica **{energia_ciclo}**: Periodo de máxima consolidación de proyectos independientes, reestructuración operativa y optimización de recursos del holding.")
+            st.warning(f"Año regido por la vibración teosófica **{energia_ciclo}**: Periodo de máxima consolidación de proyectos independientes, reestructuración operativa y optimización de recursos.")
 
         with tab5:
             st.markdown("### 🎯 Consejo de Manejo y Proyección Táctica (Hasta Fin de Año)")
